@@ -15,6 +15,11 @@ import (
 	"time"
 )
 
+var (
+	Version     = ""
+	VersionLong = ""
+)
+
 type QueryBuilder struct {
 	Start, End time.Time
 	Size       int
@@ -96,6 +101,7 @@ func main() {
 	ed := time.Now()
 	st := ed.Add(-time.Duration(15 * time.Minute))
 	var (
+		ver   = flag.Bool("version", false, "Print vesion")
 		sr    = flag.String("start", st.Format(time.RFC3339), "")
 		en    = flag.String("end", ed.Format(time.RFC3339), "")
 		dr    = flag.Duration("span", time.Duration(0), "")
@@ -106,6 +112,10 @@ func main() {
 		width = flag.Int("width", 96, "UI width")
 	)
 	flag.Parse()
+	if *ver {
+		fmt.Println(Version)
+		os.Exit(0)
+	}
 
 	start, err := time.Parse(time.RFC3339, *sr)
 	if err != nil {
