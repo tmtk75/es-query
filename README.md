@@ -14,4 +14,4 @@ $ make build
 ```
 ./es-query -interval 1s
 ```
-<img alt="screenshot" src="./screenshot.png" />
+<img width="50%" alt="screenshot" src="./screenshot.png" />
