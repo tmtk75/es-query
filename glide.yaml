@@ -1,0 +1,4 @@
+package: github.com/tmtk75/es-query
+import:
+- package: github.com/gizak/termui
+  version: ^2.2.0
